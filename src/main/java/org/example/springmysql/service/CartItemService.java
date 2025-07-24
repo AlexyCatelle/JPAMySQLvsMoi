@@ -27,7 +27,7 @@ public CartItemService(CartItemRepository cartItemRepository) {
 
     @Override
     public CartItem addCartItem(CartItem cartItem) {
-        return null;
+        return cartItemRepository.save(cartItem);
     }
 
     @Override
