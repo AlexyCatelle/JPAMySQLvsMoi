@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("meuble")
+@RequestMapping("/api/furniture")
 public class FurnitureController {
     private final IFurnitureService furnitureService;
 
@@ -19,7 +19,7 @@ public class FurnitureController {
         this.furnitureService = furnitureService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
 public ResponseEntity<List<Furniture>> getAllFurniture() {
         return new ResponseEntity<>(furnitureService.getAllFurniture(), HttpStatus.OK);
     }
@@ -38,7 +38,7 @@ public ResponseEntity<List<Furniture>> getAllFurniture() {
 
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<Furniture> addFurniture(@Validated @RequestBody Furniture furniture) {
     return new ResponseEntity<>(furnitureService.saveFurniture(furniture), HttpStatus.CREATED);
     }

@@ -18,9 +18,11 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @ManyToOne
-    private Furniture furniture;
 
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "furniture_id")
+    private Furniture furniture;
     private int quantity;
 
 }

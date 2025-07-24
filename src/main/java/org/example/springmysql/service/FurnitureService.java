@@ -17,6 +17,7 @@ public class FurnitureService implements IFurnitureService {
         this.furnitureRepository = furnitureRepository;
     }
 
+
     @Override
     public List<Furniture> getAllFurniture() {
         List<Furniture> furnitures = furnitureRepository.findAll();
