@@ -1,6 +1,6 @@
 package org.example.springmysql.controller;
 
-import org.example.springmysql.interfaces.IFurniture;
+import org.example.springmysql.interfaces.IFurnitureService;
 import org.example.springmysql.model.entity.Furniture;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.UUID;
 @RestController
 @RequestMapping("meuble")
 public class FurnitureController {
-    private final IFurniture furnitureService;
+    private final IFurnitureService furnitureService;
 
-    public FurnitureController(IFurniture furnitureService) {
+    public FurnitureController(IFurnitureService furnitureService) {
         this.furnitureService = furnitureService;
     }
 

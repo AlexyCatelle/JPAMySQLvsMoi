@@ -1,6 +1,6 @@
 package org.example.springmysql.service;
 
-import org.example.springmysql.interfaces.IFurniture;
+import org.example.springmysql.interfaces.IFurnitureService;
 import org.example.springmysql.model.entity.Furniture;
 import org.example.springmysql.repository.FurnitureRepository;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class FurnitureService implements IFurniture {
+public class FurnitureServiceService implements IFurnitureService {
     private final FurnitureRepository furnitureRepository;
 
-    public FurnitureService(FurnitureRepository furnitureRepository) {
+    public FurnitureServiceService(FurnitureRepository furnitureRepository) {
         this.furnitureRepository = furnitureRepository;
     }
 

@@ -5,7 +5,7 @@ import org.example.springmysql.model.entity.Furniture;
 import java.util.List;
 import java.util.UUID;
 
-public interface IFurniture {
+public interface IFurnitureService {
     List<Furniture> getAllFurniture();
     Furniture getFurnitureById(UUID id) throws Exception;
     Furniture saveFurniture(Furniture furniture);
