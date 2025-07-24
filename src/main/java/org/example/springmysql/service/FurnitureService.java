@@ -10,10 +10,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class FurnitureServiceService implements IFurnitureService {
+public class FurnitureService implements IFurnitureService {
     private final FurnitureRepository furnitureRepository;
 
-    public FurnitureServiceService(FurnitureRepository furnitureRepository) {
+    public FurnitureService(FurnitureRepository furnitureRepository) {
         this.furnitureRepository = furnitureRepository;
     }
 
