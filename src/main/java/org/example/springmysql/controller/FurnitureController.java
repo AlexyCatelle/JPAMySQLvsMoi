@@ -8,9 +8,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/meuble")
+@RequestMapping("meuble")
 public class FurnitureController {
     private final IFurniture furnitureService;
 
@@ -18,13 +19,37 @@ public class FurnitureController {
         this.furnitureService = furnitureService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
 public ResponseEntity<List<Furniture>> getAllFurniture() {
         return new ResponseEntity<>(furnitureService.getAllFurniture(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Furniture> getFurnitureById(@PathVariable UUID id) {
+     Furniture furniture;
+      try {
+          furniture = furnitureService.getFurnitureById(id);
+
+      } catch (Exception e) {
+          return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+      }
+
+      return new ResponseEntity<>(furniture, HttpStatus.OK);
+
     }
 
     @PostMapping("/add")
     public ResponseEntity<Furniture> addFurniture(@Validated @RequestBody Furniture furniture) {
     return new ResponseEntity<>(furnitureService.saveFurniture(furniture), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Furniture> deleteFurniture(@PathVariable UUID id) {
+        try {
+            furnitureService.deleteFurniture(id);
+        } catch (Exception e){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
